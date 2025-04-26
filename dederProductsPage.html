@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deder Farms - Our Products</title>
+    <title>Our Products - Deder Farms</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="image/x-icon" href="Screenshot 2025-04-26 at 3.27.21 AM.webp" />
     <style>
         :root {
             --primary: #4a7c59;
@@ -52,16 +54,29 @@
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-        
-        .logo i {
-            color: var(--accent);
+
+        .logo-image {
+            height: 65px;
+            /* Taller */
+            width: 55px;
+            /* Wider */
+            object-fit: cover;
+            /* Important: prevents distortion and fits nicely */
+            border-radius: 50%;
+            /* Makes it oval/circle if aspect ratio allows */
+            margin-right: 10px;
+        }
+
+
+        .logo span {
+            color: var(--secondary);
         }
         
         .menu {
@@ -367,15 +382,21 @@
         }
         
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 20px;
         }
         
-        .footer-logo i {
+        .footer-logo-image {
+            height: 40px; /* or adjust based on your design */
+            width: auto;
+            object-fit: cover;
+        }
+        
+        .footer-logo span {
+            font-size: 24px;
+            font-weight: bold;
             color: var(--accent);
         }
         
@@ -587,10 +608,8 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-piggy-bank"></i>
-                    <span>Deder Farms</span>
-                </div>
+                <a href="#" class="logo"><img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt=""
+                    class="logo-image">Deder Farms</span></a>
                 <div class="menu">
                     <a href="index.html">Home</a>
                     <a href="dederAboutUs.html">About Us</a>
@@ -632,7 +651,7 @@
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Pork Ribs">
+                            <img src="pork ribs.webp" alt="Pork Ribs">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Pork Ribs</h3>
@@ -647,7 +666,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Pork Belly">
+                            <img src="quality pork product.webp" alt="Pork Belly">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Pork Belly</h3>
@@ -662,7 +681,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Pork Chops">
+                            <img src="pork chops.webp" alt="Pork Chops">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Pork Chops</h3>
@@ -677,7 +696,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Pork Tenderloin">
+                            <img src="Pork Tenderloin.webp" alt="Pork Tenderloin">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Pork Tenderloin</h3>
@@ -701,7 +720,7 @@
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Vacuum-Sealed Pork">
+                            <img src="Vacuum-Sealed Pork.webp" alt="Vacuum-Sealed Pork">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Vacuum-Sealed Pork</h3>
@@ -716,7 +735,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Frozen Pork Cuts">
+                            <img src="frozen pork cuts.webp" alt="Frozen Pork Cuts">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Frozen Pork Cuts</h3>
@@ -731,7 +750,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Specialty Frozen Portions">
+                            <img src="Specialty Frozen Portions pork in fridge.webp" alt="Specialty Frozen Portions">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Specialty Frozen Portions</h3>
@@ -755,7 +774,7 @@
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Pre-Marinated Pork">
+                            <img src="high-angle-steak-with-ketchup-beer.webp" alt="Pre-Marinated Pork">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Pre-Marinated Pork</h3>
@@ -770,7 +789,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Seasoned Pork Cuts">
+                            <img src="Seasoned Pork Cuts.webp" alt="Seasoned Pork Cuts">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Seasoned Pork Cuts</h3>
@@ -785,7 +804,7 @@
                     
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/api/placeholder/400/320" alt="Pre-Packed Pork">
+                            <img src="Pre-Packed Quick pork Meals.webp" alt="Pre-Packed Pork">
                         </div>
                         <div class="product-info">
                             <h3 class="product-title">Pre-Packed Quick Meals</h3>
@@ -807,7 +826,7 @@
         <div class="container">
             <div class="wholesale-content">
                 <div class="wholesale-image">
-                    <img src="/api/placeholder/600/400" alt="Wholesale Pork Supply">
+                    <img src="Wholesale Pork Supply.webp" alt="Wholesale Pork Supply">
                 </div>
                 <div class="wholesale-info">
                     <h2>Wholesale Pork Supply</h2>
@@ -837,7 +856,7 @@
                     </ul>
                 </div>
                 <div class="quality-image">
-                    <img src="/api/placeholder/600/400" alt="Quality Farming">
+                    <img src="Quality pork Farming.webp" alt="Quality Farming">
                 </div>
             </div>
         </div>
@@ -849,7 +868,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <i class="fas fa-piggy-bank"></i>
+                        <img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt="Deder Farms Logo" class="footer-logo-image">
                         <span>Deder Farms</span>
                     </div>
                     <p>Premium quality pork products from family-owned farms in Ghana's Eastern Region.</p>
@@ -889,7 +908,7 @@
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <span>+233 XX XXX XXXX</span>
+                        <span>+233244084797</span>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">

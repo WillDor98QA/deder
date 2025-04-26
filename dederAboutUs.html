@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Deder Farms</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="image/x-icon" href="Screenshot 2025-04-26 at 3.27.21 AM.webp" />
     <style>
         :root {
             --primary: #4a7c59;
@@ -53,16 +55,29 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
 
-        .logo i {
-            color: var(--accent);
+        .logo-image {
+            height: 65px;
+            /* Taller */
+            width: 55px;
+            /* Wider */
+            object-fit: cover;
+            /* Important: prevents distortion and fits nicely */
+            border-radius: 50%;
+            /* Makes it oval/circle if aspect ratio allows */
+            margin-right: 10px;
+        }
+
+
+        .logo span {
+            color: var(--secondary);
         }
 
         .menu {
@@ -130,7 +145,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1562783912-21ad31ee2a83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2066&q=80');
+            background-image: url('About us Banner.webp');
             background-size: cover;
             background-position: center;
             filter: brightness(0.7);
@@ -471,7 +486,8 @@
         .section {
             background-color: #f5f8f5;
             padding: 60px 0;
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            overflow-x: hidden;
+            /* Prevent horizontal scrollbar */
         }
 
         .container {
@@ -499,7 +515,8 @@
 
         .testimonials-track {
             display: flex;
-            width: 400%; /* Show all 4 slides (3 original + 1 clone) */
+            width: 400%;
+            /* Show all 4 slides (3 original + 1 clone) */
             transition: transform 0.5s ease;
         }
 
@@ -587,8 +604,10 @@
             .testimonial-slide {
                 width: 50%;
             }
+
             .testimonials-track {
-                width: 600%; /* 6 slides at 50% width each */
+                width: 600%;
+                /* 6 slides at 50% width each */
             }
         }
 
@@ -596,8 +615,10 @@
             .testimonial-slide {
                 width: 100%;
             }
+
             .testimonials-track {
-                width: 300%; /* 3 slides at 100% width each */
+                width: 300%;
+                /* 3 slides at 100% width each */
             }
         }
 
@@ -698,15 +719,22 @@
         }
 
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 20px;
         }
 
-        .footer-logo i {
+        .footer-logo-image {
+            height: 40px;
+            /* or adjust based on your design */
+            width: auto;
+            object-fit: cover;
+        }
+
+        .footer-logo span {
+            font-size: 24px;
+            font-weight: bold;
             color: var(--accent);
         }
 
@@ -962,6 +990,7 @@
                 text-align: center;
             }
         }
+
         /* Loader Styles */
         .loader-container {
             position: fixed;
@@ -976,13 +1005,13 @@
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        
+
         .loader {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         .spinner {
             width: 70px;
             height: 70px;
@@ -992,7 +1021,7 @@
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
         }
-        
+
         .loader-logo {
             display: flex;
             align-items: center;
@@ -1001,23 +1030,28 @@
             color: var(--primary);
             margin-bottom: 10px;
         }
-        
+
         .loader-logo i {
             color: var(--accent);
             margin-right: 10px;
             font-size: 28px;
         }
-        
+
         .loader-text {
             color: var(--primary);
             font-weight: 500;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1044,19 +1078,19 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-piggy-bank"></i>
-                    <span>Deder Farms</span>
-                </div>
-                <div class="menu">
-                    <a href="index.html">Home</a>
-                    <a href="dederAboutUs.html" class="menu-active">About Us</a>
-                    <a href="dederProductsPage.html">Products</a>
-                    <a href="dederContact.html">Contact</a>
-                </div>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <a href="#" class="logo"><img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt=""
+                        class="logo-image">Deder Farms</span></a>
+                <nav>
+                    <div class="menu">
+                        <a href="index.html">Home</a>
+                        <a href="dederAboutUs.html" class="menu-active">About Us</a>
+                        <a href="dederProductsPage.html">Products</a>
+                        <a href="dederContact.html">Contact</a>
+                    </div>
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
             </nav>
         </div>
     </header>
@@ -1092,7 +1126,7 @@
 
             <div class="about-grid">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    <img src="picks approach.webp"
                         alt="Deder Farms History">
                 </div>
                 <div class="about-content">
@@ -1303,7 +1337,9 @@
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="testimonial-content">
-                                <p>"Deder Farms provides the freshest and most flavorful pork I've ever used in my restaurant. Their commitment to quality is evident in every cut of meat they deliver."</p>
+                                <p>"Deder Farms provides the freshest and most flavorful pork I've ever used in my
+                                    restaurant. Their commitment to quality is evident in every cut of meat they
+                                    deliver."</p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-image">
@@ -1324,7 +1360,9 @@
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="testimonial-content">
-                                <p>"As a family that values healthy food, we appreciate Deder Farms' commitment to organic, ethically raised pork. Their packaged cuts have become a staple in our home cooking."</p>
+                                <p>"As a family that values healthy food, we appreciate Deder Farms' commitment to
+                                    organic, ethically raised pork. Their packaged cuts have become a staple in our home
+                                    cooking."</p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-image">
@@ -1345,7 +1383,9 @@
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="testimonial-content">
-                                <p>"Deder Farms has been our trusted supplier for three years now. Their reliability, consistent quality, and excellent customer service make them our preferred partner."</p>
+                                <p>"Deder Farms has been our trusted supplier for three years now. Their reliability,
+                                    consistent quality, and excellent customer service make them our preferred partner."
+                                </p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-image">
@@ -1366,7 +1406,9 @@
                                 <i class="fas fa-quote-right"></i>
                             </div>
                             <div class="testimonial-content">
-                                <p>"Deder Farms provides the freshest and most flavorful pork I've ever used in my restaurant. Their commitment to quality is evident in every cut of meat they deliver."</p>
+                                <p>"Deder Farms provides the freshest and most flavorful pork I've ever used in my
+                                    restaurant. Their commitment to quality is evident in every cut of meat they
+                                    deliver."</p>
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-image">
@@ -1433,7 +1475,7 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Deder Farms Values">
+                    <img src="deder farm values.webp" alt="Deder Farms Values">
                 </div>
             </div>
         </div>
@@ -1460,7 +1502,8 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <i class="fas fa-piggy-bank"></i>
+                        <img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt="Deder Farms Logo"
+                            class="footer-logo-image">
                         <span>Deder Farms</span>
                     </div>
                     <p>Premium quality pork products from family-owned farms in Ghana's Eastern Region.</p>
@@ -1500,7 +1543,7 @@
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <span>+233 XX XXX XXXX</span>
+                        <span>+233244084797</span>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -1520,12 +1563,12 @@
     <script>
 
         // Loader script
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             // Hide loader when page is fully loaded
-            setTimeout(function() {
+            setTimeout(function () {
                 const loader = document.getElementById('loader');
                 loader.style.opacity = '0';
-                setTimeout(function() {
+                setTimeout(function () {
                     loader.style.display = 'none';
                 }, 500);
             }, 1000); // Show loader for at least 1 second
@@ -1568,25 +1611,25 @@
         });
 
         // Animation on testimonials
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const track = document.querySelector('.testimonials-track');
             const slides = document.querySelectorAll('.testimonial-slide:not(.clone)');
             const indicators = document.querySelectorAll('.indicator');
             const totalSlides = slides.length;
             const slideWidth = 100 / totalSlides;
-            
+
             let currentSlide = 0;
             let isAnimating = false;
             let autoScrollInterval;
-            
+
             // Initialize
             function init() {
                 // Set initial position
                 track.style.transform = `translateX(0%)`;
-                
+
                 // Set up auto-scrolling
                 startAutoScroll();
-                
+
                 // Set up indicator click events
                 indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', () => {
@@ -1595,11 +1638,11 @@
                         }
                     });
                 });
-                
+
                 // Handle transition end
                 track.addEventListener('transitionend', handleTransitionEnd);
             }
-            
+
             function startAutoScroll() {
                 autoScrollInterval = setInterval(() => {
                     if (!isAnimating) {
@@ -1607,30 +1650,30 @@
                     }
                 }, 5000); // Change slide every 5 seconds
             }
-            
+
             function stopAutoScroll() {
                 clearInterval(autoScrollInterval);
             }
-            
+
             function goToSlide(index) {
                 if (isAnimating) return;
-                
+
                 isAnimating = true;
                 updateIndicators(index);
-                
+
                 // If going from last slide to first, handle differently
                 if (currentSlide === totalSlides - 1 && index === 0) {
                     // First move to the clone slide (which appears after the last one)
                     track.style.transform = `translateX(-${totalSlides * slideWidth}%)`;
-                    
+
                     // After a brief moment, remove transition and jump back to the first actual slide
                     setTimeout(() => {
                         track.style.transition = 'none';
                         track.style.transform = `translateX(0%)`;
-                        
+
                         // Force reflow
                         void track.offsetWidth;
-                        
+
                         // Restore transition
                         track.style.transition = 'transform 0.5s ease';
                         isAnimating = false;
@@ -1640,16 +1683,16 @@
                     track.style.transition = 'transform 0.5s ease';
                     track.style.transform = `translateX(-${index * slideWidth}%)`;
                 }
-                
+
                 currentSlide = index;
             }
-            
+
             function handleTransitionEnd() {
                 if (currentSlide !== totalSlides) {
                     isAnimating = false;
                 }
             }
-            
+
             function updateIndicators(index) {
                 indicators.forEach((indicator, i) => {
                     if (i === index) {
@@ -1659,11 +1702,11 @@
                     }
                 });
             }
-            
+
             // Handle mouse interactions
             track.addEventListener('mouseenter', stopAutoScroll);
             track.addEventListener('mouseleave', startAutoScroll);
-            
+
             // Initialize the carousel
             init();
         });

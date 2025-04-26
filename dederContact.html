@@ -6,6 +6,8 @@
     <title>Contact Us - Deder Farms</title>
     <!-- Updated Font Awesome link with all.min.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="image/x-icon" href="Screenshot 2025-04-26 at 3.27.21 AM.webp" />
     <style>
         :root {
             --primary: #4a7c59;
@@ -53,16 +55,29 @@
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-        
-        .logo i {
-            color: var(--accent);
+
+        .logo-image {
+            height: 65px;
+            /* Taller */
+            width: 55px;
+            /* Wider */
+            object-fit: cover;
+            /* Important: prevents distortion and fits nicely */
+            border-radius: 50%;
+            /* Makes it oval/circle if aspect ratio allows */
+            margin-right: 10px;
+        }
+
+
+        .logo span {
+            color: var(--secondary);
         }
         
         .menu {
@@ -357,15 +372,21 @@
         }
         
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 20px;
         }
         
-        .footer-logo i {
+        .footer-logo-image {
+            height: 40px; /* or adjust based on your design */
+            width: auto;
+            object-fit: cover;
+        }
+        
+        .footer-logo span {
+            font-size: 24px;
+            font-weight: bold;
             color: var(--accent);
         }
         
@@ -600,10 +621,8 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-piggy-bank"></i>
-                    <span>Deder Farms</span>
-                </div>
+                <a href="#" class="logo"><img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt=""
+                    class="logo-image">Deder Farms</span></a>
                 <div class="menu">
                     <a href="index.html">Home</a>
                     <a href="dederAboutUs.html">About Us</a>
@@ -652,7 +671,7 @@
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h3>Get In Touch</h3>
-                    <p>Phone: <a href="tel:+233242000000">+233 24 200 0000</a></p>
+                    <p>Phone: <a href="tel:+233242000000">+233244084797</a></p>
                     <p>Email: <a href="mailto:info@dederfarms.com">info@dederfarms.com</a></p>
                     <p>Support: <a href="mailto:support@dederfarms.com">support@dederfarms.com</a></p>
                 </div>
@@ -728,7 +747,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <i class="fas fa-piggy-bank"></i>
+                        <img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt="Deder Farms Logo" class="footer-logo-image">
                         <span>Deder Farms</span>
                     </div>
                     <p>Premium quality pork products from family-owned farms in Ghana's Eastern Region.</p>
@@ -768,7 +787,7 @@
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <span>+233 24 200 0000</span>
+                        <span>+233244084797</span>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">

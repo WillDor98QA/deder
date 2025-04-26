@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deder Farms - Premium Pork Products</title>
+    <title>Home - Deder Farms</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="Screenshot 2025-04-26 at 3.27.21 AM.webp" />
     <style>
         :root {
             --primary: #4a7c59;
@@ -14,20 +17,20 @@
             --dark: #2c3e50;
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: var(--light);
             color: var(--dark);
             overflow-x: hidden;
         }
-        
+
         /* Loader Styles */
         .loader-container {
             position: fixed;
@@ -42,13 +45,13 @@
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        
+
         .loader {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         .spinner {
             width: 70px;
             height: 70px;
@@ -58,7 +61,7 @@
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
         }
-        
+
         .loader-logo {
             display: flex;
             align-items: center;
@@ -67,29 +70,34 @@
             color: var(--primary);
             margin-bottom: 10px;
         }
-        
+
         .loader-logo i {
             color: var(--accent);
             margin-right: 10px;
             font-size: 28px;
         }
-        
+
         .loader-text {
             color: var(--primary);
             font-weight: 500;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header & Navigation */
         header {
             background-color: white;
@@ -99,32 +107,45 @@
             z-index: 100;
             top: 0;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-        
+
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-        
-        .logo i {
-            color: var(--accent);
+
+        .logo-image {
+            height: 65px;
+            /* Taller */
+            width: 55px;
+            /* Wider */
+            object-fit: cover;
+            /* Important: prevents distortion and fits nicely */
+            border-radius: 50%;
+            /* Makes it oval/circle if aspect ratio allows */
+            margin-right: 10px;
         }
-        
+
+
+        .logo span {
+            color: var(--secondary);
+        }
+
         .menu {
             display: flex;
             gap: 30px;
         }
-        
+
         .menu a {
             text-decoration: none;
             color: var(--dark);
@@ -132,7 +153,7 @@
             position: relative;
             transition: var(--transition);
         }
-        
+
         .menu a:after {
             content: '';
             position: absolute;
@@ -143,29 +164,29 @@
             left: 0;
             transition: var(--transition);
         }
-        
+
         .menu a:hover {
             color: var(--primary);
         }
-        
+
         .menu a:hover:after {
             width: 100%;
         }
-        
+
         .menu-active {
             color: var(--primary) !important;
         }
-        
+
         .menu-active:after {
             width: 100% !important;
         }
-        
+
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 24px;
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -176,7 +197,7 @@
             margin-top: 80px;
             overflow: hidden;
         }
-        
+
         .hero-background {
             position: absolute;
             top: 0;
@@ -190,16 +211,17 @@
             z-index: -1;
             animation: zoomEffect 20s infinite alternate;
         }
-        
+
         @keyframes zoomEffect {
             0% {
                 transform: scale(1);
             }
+
             100% {
                 transform: scale(1.1);
             }
         }
-        
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -209,7 +231,7 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
-        
+
         .hero-content {
             opacity: 0;
             transform: translateY(20px);
@@ -217,19 +239,19 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
         }
-        
+
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
             max-width: 600px;
         }
-        
+
         .hero-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -241,31 +263,31 @@
             transition: var(--transition);
             transform: scale(1);
         }
-        
+
         .hero-btn:hover {
             background-color: var(--primary);
             color: white;
             transform: scale(1.05);
         }
-        
+
         /* Rest of your existing CSS stays the same */
         /* About Section */
         .section {
             padding: 100px 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
             position: relative;
         }
-        
+
         .section-title h2 {
             font-size: 36px;
             color: var(--primary);
             margin-bottom: 20px;
         }
-        
+
         .section-title:after {
             content: '';
             position: absolute;
@@ -276,53 +298,53 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         .section-content {
             opacity: 0;
         }
-        
+
         .purpose-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             margin-bottom: 60px;
         }
-        
+
         .purpose-image {
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .purpose-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
-        
+
         .purpose-image:hover img {
             transform: scale(1.05);
         }
-        
+
         .purpose-content h3 {
             font-size: 28px;
             color: var(--primary);
             margin-bottom: 20px;
         }
-        
+
         .purpose-content p {
             line-height: 1.8;
             margin-bottom: 20px;
         }
-        
+
         /* Values Section */
         .values-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-        
+
         .value-card {
             background-color: white;
             padding: 30px;
@@ -332,29 +354,29 @@
             transition: var(--transition);
             transform: translateY(0);
         }
-        
+
         .value-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .value-icon {
             font-size: 36px;
             color: var(--accent);
             margin-bottom: 20px;
         }
-        
+
         .value-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: var(--primary);
         }
-        
+
         .value-card p {
             line-height: 1.7;
             color: var(--dark);
         }
-        
+
         /* Products Preview */
         .products-preview {
             background-color: var(--primary);
@@ -363,12 +385,12 @@
             text-align: center;
             margin-top: 60px;
         }
-        
+
         .products-preview h3 {
             font-size: 28px;
             margin-bottom: 30px;
         }
-        
+
         .preview-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -379,49 +401,55 @@
             font-weight: bold;
             transition: var(--transition);
         }
-        
+
         .preview-btn:hover {
             background-color: white;
             transform: scale(1.05);
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
             padding: 60px 0 30px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 20px;
         }
         
-        .footer-logo i {
+        .footer-logo-image {
+            height: 40px; /* or adjust based on your design */
+            width: auto;
+            object-fit: cover;
+        }
+        
+        .footer-logo span {
+            font-size: 24px;
+            font-weight: bold;
             color: var(--accent);
         }
-        
+
         .footer-about p {
             line-height: 1.7;
             margin-bottom: 20px;
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-icon {
             display: inline-flex;
             align-items: center;
@@ -434,20 +462,20 @@
             font-size: 18px;
             transition: var(--transition);
         }
-        
+
         .social-icon:hover {
             background-color: var(--accent);
             color: var(--dark);
             transform: translateY(-5px);
         }
-        
+
         .footer-title {
             font-size: 18px;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .footer-title:after {
             content: '';
             position: absolute;
@@ -457,7 +485,7 @@
             bottom: 0;
             left: 0;
         }
-        
+
         .footer-links a {
             display: block;
             color: #ddd;
@@ -465,65 +493,67 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .footer-links a:hover {
             color: var(--accent);
             padding-left: 5px;
         }
-        
+
         .contact-item {
             display: flex;
             gap: 15px;
             margin-bottom: 15px;
         }
-        
+
         .contact-icon {
             color: var(--accent);
             font-size: 18px;
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         /* Animations */
         @keyframes fadeUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
-        
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .purpose-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .values-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (max-width: 768px) {
             .menu {
                 position: fixed;
@@ -537,28 +567,28 @@
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 transition: var(--transition);
             }
-            
+
             .menu.active {
                 right: 0;
             }
-            
+
             .hamburger {
                 display: block;
             }
-            
+
             .hero h1 {
                 font-size: 36px;
             }
-            
+
             .hero p {
                 font-size: 18px;
             }
-            
+
             .values-container {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 576px) {
             .footer-content {
                 grid-template-columns: 1fr;
@@ -566,6 +596,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Loader -->
     <div class="loader-container" id="loader">
@@ -583,20 +614,19 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <i class="fas fa-piggy-bank"></i>
-                    <span>Deder Farms</span>
-                </div>
-                <div class="menu">
-                    <a href="index.html" class="menu-active">Home</a>
-                    <a href="dederAboutUs.html">About Us</a>
-                    <a href="dederProductsPage.html">Products</a>
-                    <a href="dederContact.html">Contact</a>
-                </div>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+                <a href="#" class="logo"><img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt=""
+                        class="logo-image">Deder Farms</span></a>
+                <nav>
+                    <div class="menu">
+                        <a href="index.html" class="menu-active">Home</a>
+                        <a href="dederAboutUs.html">About Us</a>
+                        <a href="dederProductsPage.html">Products</a>
+                        <a href="dederContact.html">Contact</a>
+                    </div>
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
         </div>
     </header>
 
@@ -621,13 +651,20 @@
             </div>
             <div class="purpose-grid section-content">
                 <div class="purpose-image">
-                    <img src="/api/placeholder/600/400" alt="Deder Farms Facilities">
+                    <img src="deder farm values.webp" alt="Deder Farms Facilities">
                 </div>
                 <div class="purpose-content">
                     <h3>Our Purpose</h3>
-                    <p>Deder Farms Retail is a family-owned business in the Eastern part of Ghana that produces high-quality pork. We understand the importance of providing healthy pork to the public, so the pigs are raised under ideal and hygienic farming conditions until they reach table size.</p>
-                    <p>While we primarily supply fresh pork to clients on a wholesale basis, we are expanding the farm services to retailing in branded packages and ensuring better pork preservation, even as market demand fluctuates. This has resulted in the launch of a new retail venture, including the establishment of a cold storage facility in a key market area to store and sell packaged pork products.</p>
-                    <p>This initiative will increase market accessibility, reduce waste, and generate a reliable revenue stream.</p>
+                    <p>Deder Farms Retail is a family-owned business in the Eastern part of Ghana that produces
+                        high-quality pork. We understand the importance of providing healthy pork to the public, so the
+                        pigs are raised under ideal and hygienic farming conditions until they reach table size.</p>
+                    <p>While we primarily supply fresh pork to clients on a wholesale basis, we are expanding the farm
+                        services to retailing in branded packages and ensuring better pork preservation, even as market
+                        demand fluctuates. This has resulted in the launch of a new retail venture, including the
+                        establishment of a cold storage facility in a key market area to store and sell packaged pork
+                        products.</p>
+                    <p>This initiative will increase market accessibility, reduce waste, and generate a reliable revenue
+                        stream.</p>
                 </div>
             </div>
         </div>
@@ -642,39 +679,44 @@
             <div class="purpose-grid section-content">
                 <div class="purpose-content">
                     <h3>Our Mission</h3>
-                    <p>Our mission is to provide consumers with premium-quality pork products by leveraging self-sourcing, thereby improving the supply chain.</p>
-                    
+                    <p>Our mission is to provide consumers with premium-quality pork products by leveraging
+                        self-sourcing, thereby improving the supply chain.</p>
+
                     <h3>Our Vision</h3>
-                    <p>Our vision is to become the preferred pork retailer for pork lovers across Ghana who value quality, taste, and ethical sourcing.</p>
+                    <p>Our vision is to become the preferred pork retailer for pork lovers across Ghana who value
+                        quality, taste, and ethical sourcing.</p>
                 </div>
                 <div class="purpose-image">
-                    <img src="/api/placeholder/600/400" alt="Quality Pork Products">
+                    <img src="quality pork product.webp" alt="Quality Pork Products">
                 </div>
             </div>
-            
+
             <div class="values-container section-content">
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3>Healthy Products</h3>
-                    <p>The farm's pork meat is sourced from a very sanitary farm, and the farm's products are 100% organic and safe.</p>
+                    <p>The farm's pork meat is sourced from a very sanitary farm, and the farm's products are 100%
+                        organic and safe.</p>
                 </div>
-                
+
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Community Engagement</h3>
-                    <p>We encourage local farmers, offer job opportunities, and help Ghana's Eastern Region thrive economically.</p>
+                    <p>We encourage local farmers, offer job opportunities, and help Ghana's Eastern Region thrive
+                        economically.</p>
                 </div>
-                
+
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-star"></i>
                     </div>
                     <h3>Customer Satisfaction</h3>
-                    <p>The farm's customers are its main concern, and we are devoted to providing them with exceptional service at all times.</p>
+                    <p>The farm's customers are its main concern, and we are devoted to providing them with exceptional
+                        service at all times.</p>
                 </div>
             </div>
         </div>
@@ -694,7 +736,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <i class="fas fa-piggy-bank"></i>
+                        <img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt="Deder Farms Logo" class="footer-logo-image">
                         <span>Deder Farms</span>
                     </div>
                     <p>Premium quality pork products from family-owned farms in Ghana's Eastern Region.</p>
@@ -705,7 +747,7 @@
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4 class="footer-title">Quick Links</h4>
                     <a href="index.html">Home</a>
@@ -713,7 +755,7 @@
                     <a href="dederProductsPage.html">Products</a>
                     <a href="dederContact.html">Contact</a>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4 class="footer-title">Products</h4>
                     <a href="dederProductsPage.html">Fresh Pork Cuts</a>
@@ -721,7 +763,7 @@
                     <a href="dederProductsPage.html">Ready-to-Cook Pork</a>
                     <a href="dederProductsPage.html">Wholesale Supply</a>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h4 class="footer-title">Contact Us</h4>
                     <div class="contact-item">
@@ -734,7 +776,8 @@
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <span>+233 XX XXX XXXX</span>
+                        <span>+233244084797</span>
+                        
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -744,7 +787,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 <p>&copy; 2025 Deder Farms. All Rights Reserved.</p>
             </div>
@@ -753,45 +796,45 @@
 
     <script>
         // Loader script
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             // Hide loader when page is fully loaded
-            setTimeout(function() {
+            setTimeout(function () {
                 const loader = document.getElementById('loader');
                 loader.style.opacity = '0';
-                setTimeout(function() {
+                setTimeout(function () {
                     loader.style.display = 'none';
                 }, 500);
             }, 1000); // Show loader for at least 1 second
         });
-        
+
         // Animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.section-content');
-            
+
             function checkScroll() {
                 sections.forEach(section => {
                     const sectionTop = section.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
-                    
+
                     if (sectionTop < windowHeight * 0.75) {
                         section.style.animation = 'fadeUp 1s forwards';
                     }
                 });
             }
-            
+
             // Initial check
             checkScroll();
-            
+
             // Check on scroll
             window.addEventListener('scroll', checkScroll);
-            
+
             // Mobile menu toggle
             const hamburger = document.querySelector('.hamburger');
             const menu = document.querySelector('.menu');
-            
-            hamburger.addEventListener('click', function() {
+
+            hamburger.addEventListener('click', function () {
                 menu.classList.toggle('active');
-                
+
                 if (menu.classList.contains('active')) {
                     hamburger.innerHTML = '<i class="fas fa-times"></i>';
                 } else {
@@ -801,4 +844,5 @@
         });
     </script>
 </body>
+
 </html>
