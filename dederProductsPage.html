@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deder Farms - Our Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a7c59;
+            --secondary: #8fb996;
+            --accent: #f2c14e;
+            --light: #f7f9f7;
+            --dark: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            top: 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .menu a:hover {
+            color: var(--primary);
+        }
+        
+        .menu a:hover:after {
+            width: 100%;
+        }
+        
+        .menu-active {
+            color: var(--primary) !important;
+        }
+        
+        .menu-active:after {
+            width: 100% !important;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .product-category {
+            margin-bottom: 60px;
+        }
+        
+        .category-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .category-header h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .product-features {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .product-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .product-features li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        /* Wholesale Section */
+        .wholesale-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        .wholesale-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .wholesale-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wholesale-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .wholesale-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .wholesale-info p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: var(--dark);
+        }
+        
+        .quality-commitment {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .quality-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quality-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .quality-content h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .quality-content p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .quality-features {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .quality-features li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .quality-features li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo i {
+            color: var(--accent);
+        }
+        
+        .footer-about p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #ddd;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            color: var(--accent);
+            font-size: 18px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .wholesale-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu {
+                position: fixed;
+                top: 80px;
+                right: -300px;
+                background-color: white;
+                flex-direction: column;
+                width: 250px;
+                height: calc(100vh - 80px);
+                padding: 40px 0;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+            
+            .menu.active {
+                right: 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-piggy-bank"></i>
+                    <span>Deder Farms</span>
+                </div>
+                <div class="menu">
+                    <a href="dederHome.html">Home</a>
+                    <a href="dederAboutUs.html">About Us</a>
+                    <a href="dederProductsPage.html" class="menu-active">Products</a>
+                    <a href="dederContact.html">Contact</a>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Product Offerings</h1>
+            <p>Deder Farms produces high-quality pork under ideal and hygienic farming conditions, ensuring healthy products for our customers.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Product Offerings</h2>
+            </div>
+            
+            <div class="section-intro">
+                <p>Deder Farms is committed to providing premium quality pork products sourced from our family-owned farm in the Eastern region of Ghana. Our pigs are raised under ideal and hygienic farming conditions until they reach table size, ensuring the highest standards of quality and safety.</p>
+            </div>
+            
+            <!-- Fresh Pork Cuts -->
+            <div class="product-category">
+                <div class="category-header">
+                    <h3>Fresh Pork Cuts</h3>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Pork Ribs">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pork Ribs</h3>
+                            <p class="product-description">Our premium pork ribs are cut to perfection, offering a great balance of meat and flavor. Sourced from our ethically raised pigs, these ribs are ideal for various cooking methods.</p>
+                            <ul class="product-features">
+                                <li>100% organic and safe</li>
+                                <li>Farm-to-table freshness</li>
+                                <li>Perfect for grilling and slow cooking</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Pork Belly">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pork Belly</h3>
+                            <p class="product-description">Our pork belly offers a perfect ratio of fat to meat for exceptional flavor. This versatile cut is suitable for a wide range of cooking techniques.</p>
+                            <ul class="product-features">
+                                <li>Raised in sanitary farm conditions</li>
+                                <li>No artificial hormones</li>
+                                <li>Versatile for various recipes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Pork Chops">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pork Chops</h3>
+                            <p class="product-description">Our tender and juicy pork chops are cut from the loin of our ethically raised pigs. Each chop is carefully trimmed for optimal quality.</p>
+                            <ul class="product-features">
+                                <li>Premium quality cuts</li>
+                                <li>Consistent thickness for even cooking</li>
+                                <li>Excellent source of protein</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Pork Tenderloin">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pork Tenderloin</h3>
+                            <p class="product-description">The most tender cut of pork, our tenderloin is lean and versatile. This premium cut is perfect for special occasions and everyday meals alike.</p>
+                            <ul class="product-features">
+                                <li>Naturally lean cut</li>
+                                <li>Carefully trimmed and prepared</li>
+                                <li>Ideal for roasting or grilling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frozen Pork -->
+            <div class="product-category">
+                <div class="category-header">
+                    <h3>Frozen Pork Portions</h3>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Vacuum-Sealed Pork">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Vacuum-Sealed Pork</h3>
+                            <p class="product-description">Our vacuum-sealed frozen pork products are designed for convenience and freshness. Each package is carefully prepared to maintain quality.</p>
+                            <ul class="product-features">
+                                <li>Sealed for maximum freshness</li>
+                                <li>Extended shelf life</li>
+                                <li>Easy storage and portion control</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Frozen Pork Cuts">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Frozen Pork Cuts</h3>
+                            <p class="product-description">Our selection of frozen pork cuts offers the same quality as our fresh products, with the added convenience of longer storage.</p>
+                            <ul class="product-features">
+                                <li>Flash-frozen to preserve taste</li>
+                                <li>Various cuts available</li>
+                                <li>Ready to thaw and cook</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Specialty Frozen Portions">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Specialty Frozen Portions</h3>
+                            <p class="product-description">For those seeking convenience without sacrificing quality, our specialty frozen portions are pre-cut and portioned for ease of use.</p>
+                            <ul class="product-features">
+                                <li>Consistent portion sizes</li>
+                                <li>Individually wrapped options</li>
+                                <li>Perfect for meal planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ready-to-Cook -->
+            <div class="product-category">
+                <div class="category-header">
+                    <h3>Packaged Ready-to-Cook</h3>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Pre-Marinated Pork">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pre-Marinated Pork</h3>
+                            <p class="product-description">Save time with our pre-marinated pork options. These products feature authentic Ghanaian flavors and are ready for cooking with minimal preparation.</p>
+                            <ul class="product-features">
+                                <li>Traditional Ghanaian marinades</li>
+                                <li>Ready for immediate cooking</li>
+                                <li>Perfect flavor penetration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Seasoned Pork Cuts">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Seasoned Pork Cuts</h3>
+                            <p class="product-description">Our seasoned pork cuts combine convenience with traditional flavors. Each product is expertly prepared for a quick and delicious meal.</p>
+                            <ul class="product-features">
+                                <li>Quality herbs and spices</li>
+                                <li>No artificial additives</li>
+                                <li>Time-saving preparation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/320" alt="Pre-Packed Pork">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pre-Packed Quick Meals</h3>
+                            <p class="product-description">For busy households, our pre-packed quick meals provide all the quality of Deder Farms products with maximum convenience for everyday cooking.</p>
+                            <ul class="product-features">
+                                <li>Portion-controlled packaging</li>
+                                <li>Recipe suggestions included</li>
+                                <li>Ready in minutes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Section -->
+    <section class="wholesale-section">
+        <div class="container">
+            <div class="wholesale-content">
+                <div class="wholesale-image">
+                    <img src="/api/placeholder/600/400" alt="Wholesale Pork Supply">
+                </div>
+                <div class="wholesale-info">
+                    <h2>Wholesale Pork Supply</h2>
+                    <p>Deder Farms provides wholesale pork supply to restaurants, hotels, food vendors, and catering services throughout Ghana. Our wholesale service offers consistent quality, reliability, and sustainable supply.</p>
+                    <p>We understand the importance of quality ingredients for food businesses, which is why we maintain strict standards in our production process to ensure you receive the best pork products for your customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Commitment Section -->
+    <section class="quality-commitment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Quality Commitment</h2>
+            </div>
+            
+            <div class="quality-grid">
+                <div class="quality-content">
+                    <h3>Healthy & Ethical Production</h3>
+                    <p>At Deder Farms, we understand the importance of providing healthy pork to the public. Our pigs are raised under ideal and hygienic farming conditions until they reach table size, ensuring premium quality in every product.</p>
+                    <ul class="quality-features">
+                        <li>100% organic and safe pork products</li>
+                        <li>Sanitary farm conditions with regular health monitoring</li>
+                        <li>Ethical farming practices</li>
+                        <li>No hormones or unnecessary antibiotics</li>
+                    </ul>
+                </div>
+                <div class="quality-image">
+                    <img src="/api/placeholder/600/400" alt="Quality Farming">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Deder Farms</span>
+                    </div>
+                    <p>Premium quality pork products from family-owned farms in Ghana's Eastern Region.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="dederHome.html">Home</a>
+                    <a href="dederAboutUs.html">About Us</a>
+                    <a href="dederProductsPage.html">Products</a>
+                    <a href="dederContact.html">Contact</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Products</h4>
+                    <a href="dederProductsPage.html">Fresh Pork Cuts</a>
+                    <a href="dederProductsPage.html">Frozen Pork</a>
+                    <a href="dederProductsPage.html">Ready-to-Cook Pork</a>
+                    <a href="dederProductsPage.html">Wholesale Supply</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <span>Eastern Region, Ghana</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <span>+233 XX XXX XXXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <span>info@dederfarms.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Deder Farms. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.menu');
+            
+            hamburger.addEventListener('click', function() {
+                menu.classList.toggle('active');
+                
+                if (menu.classList.contains('active')) {
+                    hamburger.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
