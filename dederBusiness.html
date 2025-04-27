@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deder Farms Business Card</title>
+    <style>
+        :root {
+            --primary: #4a7c59;
+            --secondary: #8fb996;
+            --accent: #f2c14e;
+            --light: #f7f9f7;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .card-container {
+            width: 500px;
+            height: 250px;
+            perspective: 1000px;
+        }
+        
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-front {
+            background-color: white;
+            color: var(--dark);
+            flex-direction: row;
+        }
+        
+        .card-back {
+            background-color: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            box-sizing: border-box;
+            justify-content: space-between;
+        }
+        
+        .card-logo {
+            width: 30%;
+            background-color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .logo-img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .card-content {
+            width: 70%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .position {
+            font-size: 16px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .details {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .detail-item {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .back-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .back-header {
+            text-align: center;
+        }
+        
+        .back-logo {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        
+        .back-description {
+            text-align: center;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .back-footer {
+            margin-top: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .social-icon {
+            color: white;
+            background-color: rgba(255,255,255,0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+
+        .slogan {
+            font-style: italic;
+            text-align: center;
+            font-size: 12px;
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <!-- Front of card -->
+            <div class="card-front">
+                <div class="card-logo">
+                    <img src="Screenshot 2025-04-26 at 3.27.21 AM.webp" alt="Deder Farms Logo" class="logo-img">
+                </div>
+                <div class="card-content">
+                    <div class="name">Flavia Awopolimage</div>
+                    <div class="position">Chief Executive Officer</div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="icon"><i class="fas fa-phone"></i></span>
+                            <span>+44 7826 987832 || +233 244084797</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span>dederpigfarm@gmail.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span>Birim North, New-Abirem, Ghana</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon"><i class="fab fa-instagram"></i></span>
+                            <span>@deder_farms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon"><i class="fas fa-globe"></i></span>
+                            <span>www.dederfarms.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back of card -->
+            <div class="card-back">
+                <div class="back-content">
+                    <div class="back-header">
+                        <div class="back-logo">
+                            <i class="fas fa-piggy-bank" style="margin-right: 10px;"></i>
+                            Deder Farms
+                        </div>
+                        <p style="text-align: center; font-size: 14px; margin: 0;">Premium Quality Pork Products</p>
+                    </div>
+                    
+                    <div class="back-description">
+                        Family-owned farm dedicated to providing healthy, organic pork 
+                        from the Eastern region of Ghana.
+                    </div>
+                    
+                    <div class="back-footer">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/deder_farms/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="slogan">
+                            "Quality, Taste, and Ethical Sourcing"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
